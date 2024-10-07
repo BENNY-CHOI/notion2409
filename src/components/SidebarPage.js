@@ -1,3 +1,5 @@
+import NewBtn from './NewBtn.js'
+
 export default function SidebarPage({ $target, initalState }) {
     this.state = initalState
 
@@ -53,4 +55,6 @@ export default function SidebarPage({ $target, initalState }) {
         </ul>
     `
     $target.appendChild($page)
+
+    const $newBtn = new NewBtn({ $target: $page })
 }

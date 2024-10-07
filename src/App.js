@@ -1,4 +1,5 @@
 import EditorPage from './components/EditorPage.js'
+import NewBtn from './components/NewBtn.js'
 import SidebarPage from './components/SidebarPage.js'
 
 export default function App({ $target }) {
@@ -27,6 +28,11 @@ export default function App({ $target }) {
         },
     ]
 
+    const editorDummyData = {
+        title: '노션을 만들자',
+        content: '노션 만들기~',
+    }
+
     const $listContainer = document.createElement('div')
     const $editorContainer = document.createElement('div')
 
@@ -37,5 +43,8 @@ export default function App({ $target }) {
         $target: $listContainer,
         initalState: dummyData,
     })
-    const editorPage = new EditorPage({ $target: $editorContainer })
+    const editorPage = new EditorPage({
+        $target: $editorContainer,
+        initialState: editorDummyData,
+    })
 }
