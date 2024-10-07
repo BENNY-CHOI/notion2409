@@ -1,33 +1,9 @@
 import EditorPage from './components/EditorPage.js'
 import NewBtn from './components/NewBtn.js'
 import SidebarPage from './components/SidebarPage.js'
+import { request } from './utils/api.js'
 
 export default function App({ $target }) {
-    const dummyData = [
-        {
-            id: 1, // Document id
-            title: '노션을 만들자', // Document title
-            documents: [
-                {
-                    id: 2,
-                    title: '블라블라',
-                    documents: [
-                        {
-                            id: 3,
-                            title: '함냐함냐',
-                            documents: [],
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            id: 4,
-            title: 'hello!',
-            documents: [],
-        },
-    ]
-
     const editorDummyData = {
         title: '노션을 만들자',
         content: '노션 만들기~',
@@ -39,10 +15,13 @@ export default function App({ $target }) {
     $target.appendChild($listContainer)
     $target.appendChild($editorContainer)
 
+    const initalState = []
     const sidebarPage = new SidebarPage({
         $target: $listContainer,
-        initalState: dummyData,
+        initalState,
     })
+    sidebarPage.setState()
+
     const editorPage = new EditorPage({
         $target: $editorContainer,
         initialState: editorDummyData,
