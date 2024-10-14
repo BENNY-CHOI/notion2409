@@ -1,7 +1,5 @@
 import EditorPage from './components/EditorPage.js'
-import NewBtn from './components/NewBtn.js'
-import SidebarPage from './components/SidebarPage.js'
-import { request } from './utils/api.js'
+import SidebarPage from './components/sidebar/SidebarPage.js'
 
 export default function App({ $target }) {
     const editorDummyData = {
