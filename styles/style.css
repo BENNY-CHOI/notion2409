@@ -1,79 +1,140 @@
 @import 'reset.css';
 
-#app {
-    display: flex;
-    flex-decoration: row;
+:root {
+    --background-color: #f8f9fa;
+    --sidebar-color: #ffffff;
+    --text-color: #343a40;
+    --text-secondary-color: #6c757d;
+    --accent-color: #007bff;
+    --hover-color: #f1f3f5;
 }
 
-/* sidebar */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.listContainer {
+    width: 280px;
+    background-color: var(--sidebar-color);
+    border-right: 1px solid #e9ecef;
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 ul {
-    margin-left: 10%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
+    padding: 10px 0;
+    font-size: 1rem;
+    color: var(--text-secondary-color);
 }
 
-.listContainer {
-    width: 300px;
-    height: 1000px;
-    background-color: #f7f6f3;
-    overflow: auto;
-    resize: horizontal;
+li:hover {
+    color: var(--text-color);
+    cursor: pointer;
+    background-color: var(--hover-color);
+    border-radius: 4px;
+    padding-left: 10px;
 }
 
-.dataList {
-    margin: 2% 0;
-    color: #808080;
-}
-
+/* Buttons */
 .addBtn,
 .delBtn {
-    background-color: #f7f6f3;
-    color: black;
+    background-color: var(--accent-color);
+    color: #ffffff;
     border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
 .addBtn:hover,
 .delBtn:hover {
+    background-color: #0056b3;
     cursor: pointer;
 }
 
 .newBtn {
-    background-color: #f7f6f3;
-    border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    color: var(--text-secondary-color);
     text-align: left;
+    padding: 10px;
     width: 100%;
-    height: 20px;
-    color: #696969;
+    border: none;
+    background: none;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
 }
 
 .newBtn:hover {
+    color: var(--text-color);
     cursor: pointer;
-    color: #000000;
 }
 
+/* Editor Page */
 .editorPage {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    margin: 10% 20%;
+    padding: 40px;
+    overflow-y: auto;
 }
 
 .editorTitle {
+    font-size: 2rem;
+    font-weight: bold;
     border: none;
-    font-size: 2.5rem;
-    width: 1000px;
-    color: #000000;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: var(--text-color);
+    background: none;
     outline: none;
 }
 
 .editorContent {
-    margin-top: 30px;
+    flex: 1;
     border: none;
-    width: 1000px;
-    height: 600px;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 10px;
+    color: var(--text-color);
+    background: none;
     outline: none;
-    color: #000000;
     resize: none;
+}
+
+@media (max-width: 768px) {
+    .listContainer {
+        width: 100px;
+    }
+
+    .editorPage {
+        padding: 20px;
+    }
+
+    .editorTitle {
+        font-size: 1.5rem;
+    }
+
+    .editorContent {
+        font-size: 0.9rem;
+    }
 }
